@@ -28,7 +28,8 @@ public class MainActivity extends Activity {
 
         StringBuilder listOutput = new StringBuilder("OK List : ");
         list.forEach(value -> listOutput.append(value.value + ", "));
-        listOutput.delete(list.size() - 2, list.size());
+        // Clean up the trailing comma, not important for the POC
+        listOutput.delete(listOutput.length() - 2, listOutput.length());
 
         list = new ArrayList<>();
         list.add(new IntHolder(0));
@@ -39,7 +40,8 @@ public class MainActivity extends Activity {
 
         listOutput.append("\nBad List : ");
         list.forEach(value -> listOutput.append(value.value + ", "));
-        listOutput.delete(list.size() - 2, list.size());
+        // Clean up the trailing comma, not important for the POC
+        listOutput.delete(listOutput.length() - 2, listOutput.length());
 
         ((TextView) findViewById(R.id.lists)).setText(listOutput.toString());
     }
